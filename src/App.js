@@ -1,26 +1,66 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import NavBar from './component/NavBar'
+import { Route, Redirect } from 'react-router-dom'
+import FeaturePage from './component/FeaturePage'
+import HomePageContainer from './component/HomePageContainer'
+import ContactPage from './component/ContactPage'
+import LoginForm from './component/LoginForm'
+import SignupForm from './component/SignupForm'
+import ChatApp from './component/ChatApp'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      currentUser: null
+    }
+  }
+
+  componentDidMount(){
+    if(localStorage.getItem("jwt")){
+      fetch("http://localhost:3000/chatapp", {
+        headers: {
+          "Authentication": localStorage.getItem('jwt')
+        }
+      })
+      .then(response => response.json())
+      .then(json => {
+        this.setState({
+          currentUser: json
+        })
+      })
+    }
+  }
+  updateCurrentUser = (user) => {
+    this.setState({currentUser: user})
+  }
+  render(){
+    return (
+    
+      <div className="App">
+        <NavBar logged_in={this.state.currentUser} updateCurrentUser={this.updateCurrentUser}/>
+        <Route exact path="/homepage" component={HomePageContainer}/>
+
+        <Route exact path="/feature" component={FeaturePage} />
+
+        <Route exact path="/contact" component={ContactPage}/>
+
+        <Route exact path="/chatapp" component={ChatApp}/>
+
+        <Route exact path="/login" render={ () => (
+        this.state.currentUser ? 
+        <Redirect to="/homepage"/> :
+        <LoginForm updateCurrentUser={this.updateCurrentUser}
+        />)}/>
+
+        <Route exact path="/signup" render={ () => (
+          this.state.currentUser ?
+          <Redirect to="/homepage"/> :
+        <SignupForm updateCurrentUser={this.updateCurrentUser}/>)} />
+
+      </div>
+    ); 
+  }
 }
 
 export default App;
