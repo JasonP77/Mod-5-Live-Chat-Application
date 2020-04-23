@@ -1,0 +1,117 @@
+/* NAV BAR CSS */
+.top-header{
+  background-color: #523737;
+  color: white;
+  padding : 5px 10px 15px 10px;
+  position: fixed;
+  width: 100%;
+  top:0;
+  z-index: 2;
+}
+
+.header__bottom a{
+  color: white;
+}
+
+.top-header .header__top,
+.top-header .header__bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-header .header__top{
+  margin-bottom: 15px;
+  font-size: 12px;
+}
+
+.top-header .header__bottom{
+  margin: 0 10px;
+}
+
+.top-header .header__column{
+  width: 33%;
+}
+
+.top-header .header__column:last-child{
+  text-align: right;
+}
+
+.top-header .header__column:nth-child(2) {
+  text-align: center;
+}
+
+.top-header .header__number {
+  color: yellow;
+}
+
+/* SearchBar CSS */
+
+.search-bar {
+  padding: 10px 25px;
+  width:100%
+}
+
+.search-bar input{
+  width: 100%;
+  padding: 5px 7px;
+  box-sizing:  border-box;
+  border: 0;
+  border-radius: 5px;
+  background-color: #f1f2f3;
+  font-size: 13px;
+  text-align: center;
+}
+
+.search-bar input:focus{
+  outline: none;
+}
+
+/* MyProfile and Friends */
+
+.friends__section .frindes__section-header {
+  border-top: 1px solid  #ebebeb;
+  border-bottom: 1px solid  #ebebeb;
+  padding : 8px 15px;
+  font-size: 12px;
+  color: #b4b4b4;
+}
+
+.friends__section-rows .friends__section-row{
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.friends__section-row img{
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.friends__section-row a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.friends__section-rows i {
+  color: darkgreen;
+  align-items: center;
+}
+
+.friends__section-column {
+  display: flex;
+  align-items: center;
+}
+
+.friends__section-row.with-tagline {
+  justify-content: space-between;
+}
+
+.friends__section-tagline {
+  font-size: 12px;
+  background-color: #f0f0f0;
+  padding: 10px 5px;
+  border-radius:  5px;
+  color: #939393;
+}

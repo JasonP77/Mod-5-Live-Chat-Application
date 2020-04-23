@@ -12,7 +12,7 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      currentUser: null
+      currentUser: ""
     }
   }
 
@@ -29,6 +29,8 @@ class App extends Component {
           currentUser: json
         })
       })
+      
+
     }
   }
   updateCurrentUser = (user) => {
@@ -45,7 +47,11 @@ class App extends Component {
 
         <Route exact path="/contact" component={ContactPage}/>
 
-        <Route exact path="/chatapp" component={ChatApp}/>
+        <Route exact path="/chatapp" render={ () => (
+        <ChatApp
+        currentUser={this.state.currentUser}
+        />
+        )}/>
 
         <Route exact path="/login" render={ () => (
         this.state.currentUser ? 
