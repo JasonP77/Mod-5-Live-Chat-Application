@@ -3,20 +3,20 @@ import TopMenuBar from './TopMenuBar'
 import SearchBar from './SearchBar'
 import MyProfile from './MyProfile'
 import FriendsContainer from './FriendsContainer'
+import { thisExpression } from '@babel/types'
 
 class ChatApp extends Component {
-
 	render(){
-		const {currentUser} = this.props;
-		console.log(currentUser)
+		// console.log(this.state.currentUser.friends)
+		// const {currentUser} = this.props;
 		return(
 			<div>
-				<TopMenuBar />
+				<TopMenuBar friends={this.props.currentUser.friends}/>
 				<SearchBar />
 				<MyProfile 
-				currentUser={currentUser}
+				currentUser={this.props.currentUser}
 				/>
-				<FriendsContainer friends={currentUser.friends}/>
+				<FriendsContainer friends={this.props.currentUser.friends}/>
 			</div>
 		)
 	}

@@ -20,7 +20,9 @@ class MyProfile extends Component {
           {this.props.currentUser.username}
           </a>
         </div>
-        
+        <header class="frindes__section-header">
+        <h6 class="friends__section-title">Friends</h6>
+      </header>
       </div>
     </section>
 		)

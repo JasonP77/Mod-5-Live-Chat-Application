@@ -1,10 +1,12 @@
-import React, {Component} from 'react'
-import './styles/style.css'
+import React, {Component} from 'react';
+import './styles/style.css';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import { Link } from 'react-router-dom';
 class TopMenuBar extends Component {
 	constructor(){
 		super()
 		this.state = {
-			currentTime: null
+			currentTime: ""
 		}
 	}
 
@@ -41,9 +43,10 @@ class TopMenuBar extends Component {
 				<div class="header__column">
 				</div>
 				<div class="header__column">
-					<span class="header__text">Friends </span><span class="header__number">21</span>
+					<span class="header__text">Friends </span><span class="header__number">{this.props.friends.length}</span>
 				</div>
 				<div class="header__column">
+				<Link to="/add"><PersonAddIcon/></Link>
 					<i class="fa fa-cog fa-lg"></i>
 				</div>
 			</div> 

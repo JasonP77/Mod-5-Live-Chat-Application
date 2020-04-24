@@ -6,7 +6,6 @@ class FriendsContainer extends Component {
 		return this.props.friends.map(friend => <Friend key={friend.id} friendObj={friend}/>)
 	}
 	render(){
-		console.log(this.props)
 		return(
 			<div>
 			{this.renderFriends()}

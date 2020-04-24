@@ -40,6 +40,7 @@ class LoginForm extends Component {
 			} else {
 				this.props.updateCurrentUser(json.user_data)
 				localStorage.setItem("jwt", json.token)
+				console.log(json)
 			}
 		})
 	}

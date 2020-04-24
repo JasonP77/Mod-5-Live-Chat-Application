@@ -7,6 +7,7 @@ import ContactPage from './component/ContactPage'
 import LoginForm from './component/LoginForm'
 import SignupForm from './component/SignupForm'
 import ChatApp from './component/ChatApp'
+import AddFriend from './component/AddFriend'
 
 class App extends Component {
   constructor(){
@@ -48,9 +49,10 @@ class App extends Component {
         <Route exact path="/contact" component={ContactPage}/>
 
         <Route exact path="/chatapp" render={ () => (
+          this.state.currentUser ?
         <ChatApp
         currentUser={this.state.currentUser}
-        />
+        /> : <Redirect to="/homepage"/>
         )}/>
 
         <Route exact path="/login" render={ () => (
@@ -63,6 +65,9 @@ class App extends Component {
           this.state.currentUser ?
           <Redirect to="/homepage"/> :
         <SignupForm updateCurrentUser={this.updateCurrentUser}/>)} />
+        <Route exact path="/add" render={() => (
+          <AddFriend />
+        )}/>
 
       </div>
     ); 

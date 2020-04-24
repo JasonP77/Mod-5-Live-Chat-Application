@@ -4,13 +4,10 @@ class Friend extends Component {
 	render(){
 		return(
 			<section class="friends__section">
-      <header class="frindes__section-header">
-        <h6 class="friends__section-title">Friends</h6>
-      </header>
       <div class="friends__section-rows">
         <div class="friends__section-row with-tagline">
             <div class="friends__section-column">
-            <img src="images/kakao_friends.png" />
+            <img src="https://i.pinimg.com/474x/d7/80/c7/d780c75b415c710c3f427cb7e6672e7e.jpg" />
           <span class="friends__section-name">{this.props.friendObj.username}</span>
           </div>
         <span class="friends__section-tagline">idk</span>
