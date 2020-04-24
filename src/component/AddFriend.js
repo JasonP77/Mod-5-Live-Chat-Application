@@ -29,7 +29,11 @@ class AddFriend extends Component {
 
 	
 	render(){
-		const filteredUser = this.state.allUser.filter(user => user.username.includes(this.state.username))
+		const filteredUser = this.state.allUser.filter(user => user.username.includes(this.state.username) && user.id !== this.props.currentUser.id)
+
+
+		console.log(this.props.currentUser.friends)
+		console.log(filteredUser)
 		return(
 			<div>
 				<SearchBar searchTerm={this.searchTerm}/>

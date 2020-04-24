@@ -64,11 +64,11 @@ class LoginForm extends Component {
 				<form onSubmit={(e) => this.loginHandler(e)}>
 					<FormControl required fullWidth margin='normal'>
 						<InputLabel htmlFor='login-email-input'>Enter Your Username</InputLabel>
-						<Input onChange={(e) => this.inputChange(e)} autoComplete='username' autoFocus  name='username'></Input>
+						<Input onChange={(e) => this.inputChange(e)} autoComplete='off' autoFocus  name='username'></Input>
 					</FormControl>
 					<FormControl required fullWidth margin='normal'>
-						<InputLabel htmlFor='login-password-input'>Enter Your Password</InputLabel>
-						<Input onChange={(e) => this.inputChange(e)} autoComplete="current-password" type="password" name='password'></Input>
+						<InputLabel htmlFor='login-password-input' >Enter Your Password</InputLabel>
+						<Input onChange={(e) => this.inputChange(e)} autoComplete="off" type="password" name='password'></Input>
 					</FormControl>
 					<Button type='submit' fullWidth variant='contained' color='primary' className={classes.submit}>Log In</Button>
 				</form>

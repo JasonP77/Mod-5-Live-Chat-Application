@@ -66,7 +66,7 @@ class App extends Component {
           <Redirect to="/homepage"/> :
         <SignupForm updateCurrentUser={this.updateCurrentUser}/>)} />
         <Route exact path="/add" render={() => (
-          <AddFriend />
+          <AddFriend currentUser={this.state.currentUser}/>
         )}/>
 
       </div>

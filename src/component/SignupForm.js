@@ -65,15 +65,15 @@ class Signup extends Component {
           </Typography>
           <form onSubmit={(e) => {e.preventDefault(); this.createAccount(e)}}className={classes.form}>
             <FormControl required fullWidth margin='normal'>
-              <InputLabel htmlFor='signup-email-input'>Enter Your Username</InputLabel>
-              <Input onChange={(e) => this.inputChange(e)} value={this.state.username} autoComplete='username' autoFocus  name='username'></Input>
+              <InputLabel htmlFor='signup-email-input'  autocomplete="off">Enter Your Username</InputLabel>
+              <Input onChange={(e) => this.inputChange(e)} value={this.state.username} autoComplete='off' autoFocus  name='username'></Input>
             </FormControl>
             <FormControl required fullWidth margin='normal'>
-              <InputLabel htmlFor='signup-password-input'>Create A Password</InputLabel>
-              <Input onChange={(e) => this.inputChange(e)} value={this.state.password} type="password" name='password'></Input>
+              <InputLabel htmlFor='signup-password-input'  autocomplete="off">Create A Password</InputLabel>
+              <Input autoComplete='off' onChange={(e) => this.inputChange(e)} value={this.state.password} type="password" name='password'></Input>
             </FormControl>
             <FormControl required fullWidth margin='normal'>
-              <InputLabel htmlFor='signup-password-confirmation-input'>Confirm Your Password</InputLabel>
+              <InputLabel htmlFor='signup-password-confirmation-input'  autocomplete="off">Confirm Your Password</InputLabel>
               <Input onChange={(e) => this.inputChange(e)} value={this.state.password_confirmation} type="password" name='password_confirmation'></Input>
             </FormControl>
             <Button type='submit' fullWidth variant='contained' color='primary' className={classes.submit}>Submit</Button>
