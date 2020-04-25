@@ -27,17 +27,32 @@ class AddFriend extends Component {
 		})
 	}
 
+	addFriend = (e) => {
+		console.log(e.target.id)
+		fetch("http://localhost:3000/friendships", {
+			method: "POST",
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json'
+			},
+			body: JSON.stringify({
+				user_id: this.props.currentUser.id,
+				friend_id: e.target.id
+			})
+		})
+	}
+
 	
 	render(){
+
 		const filteredUser = this.state.allUser.filter(user => user.username.includes(this.state.username) && user.id !== this.props.currentUser.id)
 
-
-		console.log(this.props.currentUser.friends)
-		console.log(filteredUser)
+		// console.log(this.props.currentUser)
+		// console.log(filteredUser.includes(this.props.currentUser.friends))
 		return(
 			<div>
 				<SearchBar searchTerm={this.searchTerm}/>
-				<SearchUserListContainer filteredUser={filteredUser}/>
+				<SearchUserListContainer addFriend={this.addFriend} filteredUser={filteredUser}/>
 			</div>
 		)
 	}

@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import {Button} from '@material-ui/core'
 class SearchUser extends Component {
 	render(){
+    console.log(this.props.user.id)
 		return(
 			<section class="friends__section">
       <div class="friends__section-rows">
@@ -10,9 +11,7 @@ class SearchUser extends Component {
             <img src={this.props.user.profile_img}/>
           <span class="friends__section-name">{this.props.user.username}</span>
           </div>
-					<Button variant="contained" color="primary" href="#contained-buttons">
-  					ADD
-					</Button>
+					<button onClick={(e) => this.props.addFriend(e)} id={this.props.user.id}>{this.props.user.id}</button>
       </div>
       </div>
     </section>
