@@ -7,7 +7,7 @@ class Friend extends Component {
       <div class="friends__section-rows">
         <div class="friends__section-row with-tagline">
             <div class="friends__section-column">
-            <img src="https://i.pinimg.com/474x/d7/80/c7/d780c75b415c710c3f427cb7e6672e7e.jpg" />
+            <img src={this.props.friendObj.profile_img} />
           <span class="friends__section-name">{this.props.friendObj.username}</span>
           </div>
         <span class="friends__section-tagline">idk</span>

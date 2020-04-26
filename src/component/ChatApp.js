@@ -13,19 +13,17 @@ class ChatApp extends Component {
 			username: ""
 		}
 	}
-
-
 	searchTerm = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
 		})
 	}
 	render(){
-		const filteredFriend = this.props.currentUser.friends.filter(friend => friend.username.includes(this.state.username))
+		const filteredFriend = this.props.friends.filter(friend => friend.username.includes(this.state.username))
 		
 		return(
 			<div>
-				<TopMenuBar friends={this.props.currentUser.friends}/>
+				<TopMenuBar friends={filteredFriend}/>
 				<SearchBar searchTerm={this.searchTerm}/>
 				<MyProfile 
 				currentUser={this.props.currentUser}

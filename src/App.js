@@ -13,12 +13,14 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      currentUser: ""
+      currentUser: "",
+      friends: []
     }
   }
 
   componentDidMount(){
     if(localStorage.getItem("jwt")){
+      console.log(this.state.currentUser, this.state.friends)
       fetch("http://localhost:3000/chatapp", {
         headers: {
           "Authentication": localStorage.getItem('jwt')
@@ -30,20 +32,31 @@ class App extends Component {
           currentUser: json
         })
       })
-      
 
     }
   }
+
+  //// AFTER I HIT LOGIN BUTTON componentdidmount being called first so currentUser is null, and then updatedCurrentUser() is called and it updates STATE and if i refresh the page it calls componentdidmount again but no updateCurrentUser() that's why it has correct value of this.state.friends after refreshing
   updateCurrentUser = (user) => {
-    this.setState({currentUser: user})
+    console.log(this.state.currentUser)
+    if(user !== null){
+    this.setState({currentUser: user, friends: user.friends})
+    } else {
+      this.setState({currentUser: user})
+    }
+  }
+
+  updateFriendList = (friendObj) => {
+    this.setState({friends: [...this.state.friends, friendObj]})
   }
   render(){
+    console.log(this.state.currentUser)
+        console.log(this.state.friends)
     return (
     
       <div className="App">
         <NavBar logged_in={this.state.currentUser} updateCurrentUser={this.updateCurrentUser}/>
         <Route exact path="/homepage" component={HomePageContainer}/>
-
         <Route exact path="/feature" component={FeaturePage} />
 
         <Route exact path="/contact" component={ContactPage}/>
@@ -52,6 +65,7 @@ class App extends Component {
           this.state.currentUser ?
         <ChatApp
         currentUser={this.state.currentUser}
+        friends={this.state.friends}
         /> : <Redirect to="/homepage"/>
         )}/>
 
@@ -59,6 +73,7 @@ class App extends Component {
         this.state.currentUser ? 
         <Redirect to="/homepage"/> :
         <LoginForm updateCurrentUser={this.updateCurrentUser}
+    
         />)}/>
 
         <Route exact path="/signup" render={ () => (
@@ -66,7 +81,11 @@ class App extends Component {
           <Redirect to="/homepage"/> :
         <SignupForm updateCurrentUser={this.updateCurrentUser}/>)} />
         <Route exact path="/add" render={() => (
-          <AddFriend currentUser={this.state.currentUser}/>
+          <AddFriend 
+          currentUser={this.state.currentUser}
+          // friends={this.state.friends}
+          updateFriendList={this.updateFriendList}
+          />
         )}/>
 
       </div>

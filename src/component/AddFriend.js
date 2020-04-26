@@ -40,6 +40,8 @@ class AddFriend extends Component {
 				friend_id: e.target.id
 			})
 		})
+		.then(response => response.json())
+		.then(data => this.props.updateFriendList(this.state.allUser.find(user => user.id === data.friend_id)))
 	}
 
 	
@@ -47,7 +49,7 @@ class AddFriend extends Component {
 
 		const filteredUser = this.state.allUser.filter(user => user.username.includes(this.state.username) && user.id !== this.props.currentUser.id)
 
-		// console.log(this.props.currentUser)
+		
 		// console.log(filteredUser.includes(this.props.currentUser.friends))
 		return(
 			<div>

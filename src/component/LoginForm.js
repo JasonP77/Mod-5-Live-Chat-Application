@@ -34,13 +34,13 @@ class LoginForm extends Component {
 		})
 		.then(response => response.json())
 		.then(json => {
-			console.log(json)
+
 			if(json.error){
 				alert(json.message)
 			} else {
 				this.props.updateCurrentUser(json.user_data)
 				localStorage.setItem("jwt", json.token)
-				console.log(json)
+				
 			}
 		})
 	}
