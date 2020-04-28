@@ -9,6 +9,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import { Redirect } from 'react-router-dom'
 
 
 class EditProfile extends Component {
@@ -18,7 +19,8 @@ class EditProfile extends Component {
 			username: "",
 			password: "",
 			profile_img: "",
-			bio: ""
+			bio: "",
+			redirect: true
 		}
 	}
 
@@ -38,13 +40,15 @@ class EditProfile extends Component {
 			})
 		})
 		.then(response => response.json())
-		.then(data => console.log(data))
+		.then(data => this.props.updateProfileImg(data.profile_img))
 		this.setState({
 			username: "",
 			password: "",
 			profile_img: "",
-			bio: ""
+			bio: "",
+			redirect: false
 		})
+
 	}
 
 	inputChange = (e) => {
@@ -83,6 +87,7 @@ class EditProfile extends Component {
 					</FormControl>
 				<Button type='submit' fullWidth variant='contained' color='primary' className={classes.submit}>Submit</Button>
 				</form>
+				{!this.state.redirect && (<Redirect to="/homepage"/>)}
 			</Paper>
 		</main>
 		)

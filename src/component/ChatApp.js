@@ -30,6 +30,7 @@ class ChatApp extends Component {
 				<SearchBar searchTerm={this.searchTerm}/>
 				<MyProfile 
 				currentUser={this.props.currentUser}
+				profile_img={this.props.profile_img}
 				/>
 				<FriendsContainer  friends={filteredFriend}/>
 				<ChatappFooter currentUser={this.props.currentUser}/>

@@ -17,7 +17,7 @@ class MyProfile extends Component {
         
         <div class="friends__section-row">
       
-          <img src={this.props.currentUser.profile_img}></img>
+          <img src={this.props.profile_img}></img>
           <p class="friends__section-name">
           {this.props.currentUser.username}
       

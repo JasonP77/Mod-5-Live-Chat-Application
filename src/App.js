@@ -19,7 +19,8 @@ class App extends Component {
     super()
     this.state = {
       currentUser: "",
-      friends: []
+      friends: [],
+      profile_img: ""
     }
   }
 
@@ -35,7 +36,8 @@ class App extends Component {
       .then(json => {
         this.setState({
           currentUser: json,
-          friends: json.friends
+          friends: json.friends,
+          profile_img: json.profile_img
         })
       })
 
@@ -46,10 +48,14 @@ class App extends Component {
   updateCurrentUser = (user) => {
     console.log(this.state.currentUser)
     if(user !== null){
-    this.setState({currentUser: user, friends: user.friends})
+    this.setState({currentUser: user, friends: user.friends, profile_img: user.profile_img})
     } else {
       this.setState({currentUser: user})
     }
+  }
+
+  updateProfileImg = (profileImg) => {
+    this.setState({profile_img: profileImg})
   }
 
   updateFriendList = (friendObj) => {
@@ -88,6 +94,7 @@ class App extends Component {
         <ChatApp
         currentUser={this.state.currentUser}
         friends={this.state.friends}
+        profile_img={this.state.profile_img}
         /> 
         </div>
         : <Redirect to="/homepage"/>
@@ -130,6 +137,7 @@ class App extends Component {
           <EditProfile 
           currentUser={this.state.currentUser}
           friends={this.state.friends}
+          updateProfileImg={this.updateProfileImg}
           />
         )}/>
 
