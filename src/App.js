@@ -20,7 +20,8 @@ class App extends Component {
     this.state = {
       currentUser: "",
       friends: [],
-      profile_img: ""
+      profile_img: "",
+      allRooms: []
     }
   }
 
@@ -37,10 +38,10 @@ class App extends Component {
         this.setState({
           currentUser: json,
           friends: json.friends,
-          profile_img: json.profile_img
+          profile_img: json.profile_img,
+          allRooms: json.chatrooms
         })
       })
-
     }
   }
 
@@ -48,7 +49,7 @@ class App extends Component {
   updateCurrentUser = (user) => {
     console.log(this.state.currentUser)
     if(user !== null){
-    this.setState({currentUser: user, friends: user.friends, profile_img: user.profile_img})
+    this.setState({currentUser: user, friends: user.friends, profile_img: user.profile_img, allRooms: user.chatrooms})
     } else {
       this.setState({currentUser: user})
     }
@@ -129,7 +130,14 @@ class App extends Component {
           </div>
         )}/>
         <Route exact path="/chatroom/" render={() => (
-          <ChatroomListContainer currentUser={this.state.currentUser}/>
+          <ChatroomListContainer 
+          currentUser={this.state.currentUser}
+          allRooms={this.state.allRooms}
+          />
+        )}/>
+
+        <Route exact path="/room/:id" render={ () => (
+          <Chatroom/>
         )}/>
         
 
