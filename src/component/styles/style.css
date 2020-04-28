@@ -47,7 +47,8 @@
 /* SearchBar CSS */
 
 .search-bar {
-  padding: 10px 25px;
+  padding: 100px 25px;
+  padding-bottom: 25px;
   width:100%
 }
 
@@ -102,10 +103,12 @@
 .friends__section-column {
   display: flex;
   align-items: center;
+  
 }
 
 .friends__section-row.with-tagline {
   justify-content: space-between;
+  
 }
 
 .friends__section-tagline {
@@ -115,3 +118,103 @@
   border-radius:  5px;
   color: #939393;
 }
+
+.friends-container {
+  margin-bottom: 70px;
+}
+
+/* Chatapp Footer */
+
+.tab-bar {
+  background-color: #F7F7F7;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content:  space-between;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding: 0px 30px 0px 30px;
+  border-top:1px solid #c1c1c1;
+}
+
+.tab-bar .tab-bar__tab {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-decoration: none;
+  color: #c1c1c1;
+}
+
+.tab-bar .tab-bar__tab--selected {
+  color: #523737;
+}
+.tab-bar .tab-bar__tab i{
+  display: block;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 24px;
+}
+
+.tab-bar .tab-bar__title {
+  font-size: 10px;
+}
+
+/* Chatroom List */
+
+.chats .chats__list{
+  border-top:1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.chats__list .chats__chat{
+  padding: 20px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.chats__list .chats__chat:last-child{
+  border-style: none;
+}
+
+.chats__chat .chat__content img {
+  width:50px;
+  border-radius: 50%;
+  margin-right: 13px;
+}
+
+.chats__list .chats__chat a {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  color:inherit;
+}
+
+
+.chats__chat .chat__content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.chat__privew .chat__user{
+  font-weight: 600px;
+  margin-bottom: 4px;
+  /* padding-top: 3px; */
+  margin-top: 10px;
+}
+
+.chat__privew .chat__last-message {
+  color: #b4b4b4;
+  font-size: 11px;
+
+}
+
+.chats__chat .chat__date-time {
+  font-size: 10px;
+  color: #b4b4b4;
+}
+
+.chats__chat:hover {
+  background-color: #e7f5fe;
+  transition: 0.5s;
+}
+

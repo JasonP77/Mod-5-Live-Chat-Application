@@ -8,6 +8,11 @@ import LoginForm from './component/LoginForm'
 import SignupForm from './component/SignupForm'
 import ChatApp from './component/ChatApp'
 import AddFriend from './component/AddFriend'
+import Chatroom from './component/Chatroom'
+import ChatroomListContainer from './component/ChatroomListContainer'
+import TopMenuBar from './component/TopMenuBar'
+import EditProfile from './component/EditProfile'
+import BeforeEdit from './component/BeforeEdit'
 
 class App extends Component {
   constructor(){
@@ -29,7 +34,8 @@ class App extends Component {
       .then(response => response.json())
       .then(json => {
         this.setState({
-          currentUser: json
+          currentUser: json,
+          friends: json.friends
         })
       })
 
@@ -50,44 +56,86 @@ class App extends Component {
     this.setState({friends: [...this.state.friends, friendObj]})
   }
   render(){
-    console.log(this.state.currentUser)
-        console.log(this.state.friends)
+    // console.log(this.state.currentUser)
+    //     console.log(this.state.friends)
     return (
     
       <div className="App">
-        <NavBar logged_in={this.state.currentUser} updateCurrentUser={this.updateCurrentUser}/>
-        <Route exact path="/homepage" component={HomePageContainer}/>
-        <Route exact path="/feature" component={FeaturePage} />
+        
+        <Route exact path="/homepage" render={() => (
+          <div>
+          <NavBar logged_in={this.state.currentUser} updateCurrentUser={this.updateCurrentUser}/>
+          < HomePageContainer/>
+          </div>
+        )}/>
+        <Route exact path="/feature" render={() => (
+           <div>
+           <NavBar logged_in={this.state.currentUser} updateCurrentUser={this.updateCurrentUser}/>
+           < FeaturePage/>
+           </div>
+        )} />
 
-        <Route exact path="/contact" component={ContactPage}/>
+        <Route exact path="/contact" render={() => (
+           <div>
+           <NavBar logged_in={this.state.currentUser} updateCurrentUser={this.updateCurrentUser}/>
+           < ContactPage/>
+           </div>
+        )}/>
 
         <Route exact path="/chatapp" render={ () => (
           this.state.currentUser ?
+          <div>
         <ChatApp
         currentUser={this.state.currentUser}
         friends={this.state.friends}
-        /> : <Redirect to="/homepage"/>
+        /> 
+        </div>
+        : <Redirect to="/homepage"/>
         )}/>
 
         <Route exact path="/login" render={ () => (
+         
         this.state.currentUser ? 
         <Redirect to="/homepage"/> :
-        <LoginForm updateCurrentUser={this.updateCurrentUser}
-    
-        />)}/>
+        <div>
+          <NavBar logged_in={this.state.currentUser} updateCurrentUser={this.updateCurrentUser}/>
+          <LoginForm updateCurrentUser={this.updateCurrentUser}/>
+        </div>
+        )}/>
 
         <Route exact path="/signup" render={ () => (
           this.state.currentUser ?
           <Redirect to="/homepage"/> :
-        <SignupForm updateCurrentUser={this.updateCurrentUser}/>)} />
+          <div>
+            <NavBar logged_in={this.state.currentUser} updateCurrentUser={this.updateCurrentUser}/>
+            <SignupForm updateCurrentUser={this.updateCurrentUser}/>
+        </div>
+        )} />
         <Route exact path="/add" render={() => (
+          <div>
           <AddFriend 
           currentUser={this.state.currentUser}
+          friends={this.state.friends}
           // friends={this.state.friends}
           updateFriendList={this.updateFriendList}
           />
+          </div>
+        )}/>
+        <Route exact path="/chatroom/" render={() => (
+          <ChatroomListContainer currentUser={this.state.currentUser}/>
+        )}/>
+        
+
+        <Route exact path="/edit/:id" render={() => (
+          <EditProfile 
+          currentUser={this.state.currentUser}
+          friends={this.state.friends}
+          />
         )}/>
 
+        {/* <Route exact path="/confirm_password" render={() => (
+          <BeforeEdit currentUser={this.state.currentUser}/>
+        )}/> */}
       </div>
     ); 
   }

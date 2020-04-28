@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Friend from './Friend'
+import './styles/style.css'
 class FriendsContainer extends Component {
 
 	renderFriends = () => {
@@ -7,7 +8,7 @@ class FriendsContainer extends Component {
 	}
 	render(){
 		return(
-			<div>
+			<div className="friends-container">
 			{this.renderFriends()}
 			</div>
 		)

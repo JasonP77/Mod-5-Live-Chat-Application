@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import SearchBar from './SearchBar'
 import { tsMethodSignature, throwStatement } from '@babel/types'
 import SearchUserListContainer from './SearchUserListContainer'
+import TopMenuBar from './TopMenuBar'
+import ChatappFooter from './ChatappFooter'
 class AddFriend extends Component {
 	constructor(){
 		super()
@@ -53,8 +55,10 @@ class AddFriend extends Component {
 		// console.log(filteredUser.includes(this.props.currentUser.friends))
 		return(
 			<div>
+				<TopMenuBar friends={this.props.friends}/>
 				<SearchBar searchTerm={this.searchTerm}/>
 				<SearchUserListContainer addFriend={this.addFriend} filteredUser={filteredUser}/>
+				<ChatappFooter currentUser={this.props.currentUser}/>
 			</div>
 		)
 	}

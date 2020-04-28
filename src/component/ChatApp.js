@@ -4,6 +4,9 @@ import SearchBar from './SearchBar'
 import MyProfile from './MyProfile'
 import FriendsContainer from './FriendsContainer'
 import { thisExpression } from '@babel/types'
+import ChatappFooter from './ChatappFooter'
+import { Route, Redirect } from 'react-router-dom'
+import ChatroomListContainer from './ChatroomListContainer'
 
 class ChatApp extends Component {
 	
@@ -29,6 +32,7 @@ class ChatApp extends Component {
 				currentUser={this.props.currentUser}
 				/>
 				<FriendsContainer  friends={filteredFriend}/>
+				<ChatappFooter currentUser={this.props.currentUser}/>
 			</div>
 		)
 	}
