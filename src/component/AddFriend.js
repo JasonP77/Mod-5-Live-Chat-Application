@@ -49,7 +49,7 @@ class AddFriend extends Component {
 	
 	render(){
 
-		const filteredUser = this.state.allUser.filter(user => user.username.includes(this.state.username) && user.id !== this.props.currentUser.id)
+		// const filteredUser = this.state.allUser.filter(user => user.username.includes(this.state.username) && user.id !== this.props.currentUser.id)
 
 		
 		// console.log(filteredUser.includes(this.props.currentUser.friends))
@@ -57,7 +57,7 @@ class AddFriend extends Component {
 			<div>
 				<TopMenuBar friends={this.props.friends}/>
 				<SearchBar searchTerm={this.searchTerm}/>
-				<SearchUserListContainer addFriend={this.addFriend} filteredUser={filteredUser}/>
+				<SearchUserListContainer addFriend={this.addFriend} filteredUser={this.state.allUser}/>
 				<ChatappFooter currentUser={this.props.currentUser}/>
 			</div>
 		)

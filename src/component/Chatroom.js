@@ -38,15 +38,16 @@ class Chatroom extends Component {
     
   }
 
-
- 
+  friendName = () => {
+  return this.props.currentRoom.users.find(f => f.user_id !== this.props.currentUser.id).username
+  }
 
 	render(){
-    
-
-
+    // const friendName = this.props.currentRoom.users.find(f => f.user_id !== this.props.currentUser.id).username
+    // console.log(this.props.currentRoom.users.find(f => f.user_id !== this.props.currentUser.id))
+    // console.log(this.props.currentUser.username)
 		return(
-      this.props.chatroom ?
+      this.props.chatroom ? 
 			<div>
 				<header class= "top-header chat-header">
     <div class="header__top">
@@ -65,7 +66,7 @@ class Chatroom extends Component {
         </a>
       </div>
       <div class="header__column">
-        <span class="header__text">Friend's Name</span>
+        <span class="header__text">sdmfkl</span>
       </div>
       <div class="header__column">
         <i class="fa fa-search"></i>

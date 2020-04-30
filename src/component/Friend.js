@@ -9,17 +9,17 @@ class Friend extends Component {
       color: 'black'
 		}
 		return(
-			<section class="friends__section">
-      <div class="friends__section-rows">
-       <Link to="/chatroom/1" style={linkStyle} ><div class="friends__section-row with-tagline">
+			<section  onDoubleClick={() => this.props.createNewRoom(this.props.friendObj)} class="friends__section">
+      <div  class="friends__section-rows">
+       <div class="friends__section-row with-tagline">
             <div class="friends__section-column">
-            <img src={this.props.friendObj.profile_img} />
+            <img  src={this.props.friendObj.profile_img} />
           <span class="friends__section-name">{this.props.friendObj.username}</span>
           </div>
           {this.props.friendObj.bio ? <span class="friends__section-tagline">{this.props.friendObj.bio}</span> : null}
         
       </div>
-      </Link>
+
       </div>
     </section>
 		)

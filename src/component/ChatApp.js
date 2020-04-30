@@ -32,7 +32,9 @@ class ChatApp extends Component {
 				currentUser={this.props.currentUser}
 				profile_img={this.props.profile_img}
 				/>
-				<FriendsContainer  friends={filteredFriend}/>
+				<FriendsContainer  friends={filteredFriend}
+				createNewRoom={this.props.createNewRoom}
+				/>
 				<ChatappFooter currentUser={this.props.currentUser}/>
 			</div>
 		)

@@ -4,7 +4,7 @@ import './styles/style.css'
 class FriendsContainer extends Component {
 
 	renderFriends = () => {
-		return this.props.friends.map(friend => <Friend key={friend.id} friendObj={friend}/>)
+		return this.props.friends.map(friend => <Friend createNewRoom={this.props.createNewRoom} key={friend.id} friendObj={friend}/>)
 	}
 	render(){
 		return(
