@@ -6,17 +6,18 @@ import AddIcon from '@material-ui/icons/Add';
 class MessageInputBox extends Component {
 	render(){
 		return(
-
+			<form onSubmit={(e) => this.props.enterMessage(e)}>
 			<div class="type-message">
     <AddIcon />
     <div class="type-message__input">
-      <input type="text" />
+      <input type="text" value={this.props.input} onChange={(e) => this.props.newMessageHandler(e)}/>
       <i class="fa fa-smile-o"></i>
       <span class="record-message">
-        <SendIcon className="icon"/>
+				<SendIcon><input type="Submit"  className="icon"/></SendIcon>
       </span>
     </div>
   </div>
+	</form>
 	
 		)
 	}

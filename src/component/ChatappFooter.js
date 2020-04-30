@@ -12,6 +12,7 @@ class ChatappFooter extends Component {
 			textDecoration: 'none'
 		}
 		return(
+
 			<div>
 				<nav class="tab-bar">
     <Link style={linkStyle} to="/chatapp">
@@ -32,7 +33,7 @@ class ChatappFooter extends Component {
       <YoutubeSearchedForIcon />
       <span class="tab-bar__title">Channel</span>
     </p>
-
+      
     <Link style={linkStyle} to={`/edit/${this.props.currentUser.id}`}>
     <p  class="tab-bar__tab tab-bar__tab--selected">
       <SettingsIcon />

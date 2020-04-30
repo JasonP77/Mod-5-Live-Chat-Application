@@ -21,13 +21,17 @@ class App extends Component {
       currentUser: "",
       friends: [],
       profile_img: "",
-      allRooms: []
+      allRooms: [],
+      currentRoom: {
+        room: {},
+        users: [],
+        messages: []
+      }
     }
   }
 
   componentDidMount(){
     if(localStorage.getItem("jwt")){
-      console.log(this.state.currentUser, this.state.friends)
       fetch("http://localhost:3000/chatapp", {
         headers: {
           "Authentication": localStorage.getItem('jwt')
@@ -41,11 +45,13 @@ class App extends Component {
           profile_img: json.profile_img,
           allRooms: json.chatrooms
         })
-      })
+      }
+      )
+
     }
   }
 
-  //// AFTER I HIT LOGIN BUTTON componentdidmount being called first so currentUser is null, and then updatedCurrentUser() is called and it updates STATE and if i refresh the page it calls componentdidmount again but no updateCurrentUser() that's why it has correct value of this.state.friends after refreshing
+
   updateCurrentUser = (user) => {
     console.log(this.state.currentUser)
     if(user !== null){
@@ -62,6 +68,35 @@ class App extends Component {
   updateFriendList = (friendObj) => {
     this.setState({friends: [...this.state.friends, friendObj]})
   }
+
+  getRoomData =(id) => {
+    fetch(`http://localhost:3000/chatrooms/${id}`)
+    .then(response => response.json())
+    .then(result => {
+      this.setState({
+        currentRoom: {
+          room: result,
+          users: result.users,
+          messages: result.messages
+        }
+      })
+    })
+  }
+
+  updateAppStateRoom = (newRoom) => {
+    this.setState({
+      currentRoom: {
+        room: newRoom.room,
+        users: newRoom.users,
+        messages: newRoom.messages
+      }
+    })
+  }
+
+
+
+
+
   render(){
     // console.log(this.state.currentUser)
     //     console.log(this.state.friends)
@@ -136,9 +171,21 @@ class App extends Component {
           />
         )}/>
 
-        <Route exact path="/room/:id" render={ () => (
-          <Chatroom/>
-        )}/>
+        <Route exact path="/room/:id" render={ (props) => 
+        {
+          let chatroomId = parseInt(props.match.params.id)
+          let selectedChatroom = this.state.allRooms.find(room => room.id === chatroomId)
+          return <Chatroom 
+          {...props}
+          cableApp={this.props.cableApp}
+          data-updatedApp={this.updateAppStateRoom}
+          getRoomData={this.getRoomData}
+          currentUser={this.state.currentUser}
+          chatroom={selectedChatroom}
+          currentRoom={this.state.currentRoom}
+          />
+           
+        }}/>
         
 
         <Route exact path="/edit/:id" render={() => (

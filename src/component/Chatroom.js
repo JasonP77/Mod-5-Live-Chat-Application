@@ -2,9 +2,51 @@ import React, {Component} from 'react'
 import './styles/chatroom.css'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import MessageInputBox from './MessageInputBox'
+import RoomWebSocket from './RoomWebSocket'
+import MessageBox from './MessageBox'
+
+
 class Chatroom extends Component {
+  constructor(){
+    super()
+    this.state = {
+      newMessage: ""
+    }
+  }
+
+  newMessageHandler = (e) => {
+    this.setState({
+      newMessage: e.target.value
+    })
+  }
+
+  enterMessage = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:3000/messages", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        user_id: this.props.currentUser.id,
+        chatroom_id: this.props.chatroom.id,
+        content: this.state.newMessage
+      })
+    })
+    this.setState({newMessage: ""})
+    
+  }
+
+
+ 
+
 	render(){
+    
+
+
 		return(
+      this.props.chatroom ?
 			<div>
 				<header class= "top-header chat-header">
     <div class="header__top">
@@ -31,28 +73,24 @@ class Chatroom extends Component {
       </div>
     </div>
   </header>
-  <main class="chat">
-    <div class="date-divider">
       
-    </div>
-        <div class="chat__message chat__message-from-me">
-          <span class="chat__message-time">Time Message was sent</span>
-          <span class="chat__message-body">Good Morning!</span>
-        </div>
-
-        <div class="chat__message chat__message-to-me">
-          <img src="https://pm1.narvii.com/7247/9a173b0bfbd2a1654d589cb855dfa47b218df818r1-1177-1657v2_hq.jpg" class="chat__message-avaatar" />
-          <div class="chat__message-center">
-            <h3 class="chat__message-username">Friend's name</h3>
-            <span class="chat__message-body">I need more sleep</span>
-          </div>
-
-          <span class="chat__message-time">Time message was sent</span>
-        </div>
-
-  </main>
-        <MessageInputBox/>
+        <MessageBox 
+        currentUser={this.props.currentUser}
+        currentRoom={this.props.currentRoom}
+        />
+        <MessageInputBox 
+        newMessageHandler={this.newMessageHandler}
+        enterMessage={this.enterMessage}
+        input={this.state.newMessage}
+        />
+        <RoomWebSocket 
+        cableApp={this.props.cableApp}
+        data-updatedApp={this.props['data-updatedApp']}
+        getRoomData={this.props.getRoomData}
+        />
 			</div>
+       :
+       null
 		)
 	}
 }

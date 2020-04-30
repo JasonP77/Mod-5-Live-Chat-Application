@@ -6,7 +6,7 @@ class ChatroomList extends Component {
 		return(
 			<div class="chats__list">
 				<div class="chats__chat">
-					<a href="/room/1">
+					<a href={`/room/${this.props.room.id}`}>
 					<div class="chat__content">
 						<img src={this.props.currentUser.profile_img} />
 						<div class="chat__privew">
