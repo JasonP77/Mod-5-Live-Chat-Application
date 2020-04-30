@@ -2,8 +2,17 @@ import React, {Component} from 'react'
 import './styles/style.css'
 import ChatappFooter from './ChatappFooter'
 class ChatroomList extends Component {
+
+	
 	render(){
-		const latestMessage = this.props.room.messages[this.props.room.messages.length -1].content
+		// const latestMessage = this.props.room.messages[this.props.room.messages.length -1].content
+		// let message
+		// if(this.props.room && this.props.room.messages[0]){
+		// 	message = this.props.room.messages[0].content
+		// } else {
+		// 	message = "no messages"
+		// }
+
 		return(
 			<div class="chats__list">
 				<div class="chats__chat">
@@ -12,7 +21,7 @@ class ChatroomList extends Component {
 						<img src={this.props.currentUser.profile_img} />
 						<div class="chat__privew">
 							<h3 class="chat__user">{this.props.room.title}</h3>
-							<span class="chat__last-message">{latestMessage}</span>
+							<span class="chat__last-message">{this.props.room?.messages[0]?.content}</span>
 							</div>
 						</div>
 						<span class="chat__date-time">12:25</span>

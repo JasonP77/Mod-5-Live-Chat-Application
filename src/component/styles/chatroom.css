@@ -13,11 +13,12 @@
 }
 .chat {
   background-color: #a1c0d6;
-  height: 100vh;
+  height: auto;
   padding-top: 15px;
   padding-left:10px;
 	padding-right: 10px;
-	margin-top: 70px;
+  margin-top: 70px;
+  margin-bottom: 45px;
 }
 
 .chat .date-divider {

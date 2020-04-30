@@ -4,7 +4,8 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import MessageInputBox from './MessageInputBox'
 import RoomWebSocket from './RoomWebSocket'
 import MessageBox from './MessageBox'
-
+import IconButton from '@material-ui/core/IconButton';
+import {Redirect} from 'react-router-dom'
 
 class Chatroom extends Component {
   constructor(){
@@ -42,6 +43,11 @@ class Chatroom extends Component {
   return this.props.currentRoom.users.find(f => f.user_id !== this.props.currentUser.id).username
   }
 
+  backToPage = () => {
+    window.location.href="http://localhost:3001/chatroom"
+  }
+  
+
 	render(){
     // const friendName = this.props.currentRoom.users.find(f => f.user_id !== this.props.currentUser.id).username
     // console.log(this.props.currentRoom.users.find(f => f.user_id !== this.props.currentUser.id))
@@ -61,9 +67,9 @@ class Chatroom extends Component {
     </div>
     <div class="header__bottom">
       <div class="header__column">
-        <a href="/chatapp">
+        <IconButton onClick={this.backToPage}>
           <ArrowBackIosIcon />
-        </a>
+        </IconButton>
       </div>
       <div class="header__column">
         <span class="header__text">sdmfkl</span>

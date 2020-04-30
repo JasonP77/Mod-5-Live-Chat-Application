@@ -55,7 +55,7 @@ class App extends Component {
   updateCurrentUser = (user) => {
     console.log(this.state.currentUser)
     if(user !== null){
-    this.setState({currentUser: user, friends: user.friends, profile_img: user.profile_img, allRooms: user.chatrooms})
+    this.setState({currentUser: user, friends: user.friends, profile_img: user.profile_img})
     } else {
       this.setState({currentUser: user})
     }

@@ -1,10 +1,11 @@
 import React, {Component} from 'react'
 
 class Message extends Component {
+
 	render(){
 		return(
 				this.props.message.user_id === this.props.currentUser.id ?
-			<div>
+			<div >
 			<div class="date-divider">
 				
 				</div>
