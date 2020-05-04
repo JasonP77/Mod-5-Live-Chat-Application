@@ -11,7 +11,8 @@ class Chatroom extends Component {
   constructor(){
     super()
     this.state = {
-      newMessage: ""
+      newMessage: "",
+      friend: ""
     }
   }
 
@@ -40,7 +41,7 @@ class Chatroom extends Component {
   }
 
   friendName = () => {
-  return this.props.currentRoom.users.find(f => f.user_id !== this.props.currentUser.id).username
+  return this.props.currentRoom.users.find(u => u.id !== this.props.currentUser.id)?.username
   }
 
   backToPage = () => {
@@ -72,7 +73,7 @@ class Chatroom extends Component {
         </IconButton>
       </div>
       <div class="header__column">
-        <span class="header__text">sdmfkl</span>
+        <span class="header__text">{this.friendName()}</span>
       </div>
       <div class="header__column">
         <i class="fa fa-search"></i>
@@ -80,11 +81,12 @@ class Chatroom extends Component {
       </div>
     </div>
   </header>
-      
+    
         <MessageBox 
         currentUser={this.props.currentUser}
         currentRoom={this.props.currentRoom}
         />
+
         <MessageInputBox 
         newMessageHandler={this.newMessageHandler}
         enterMessage={this.enterMessage}

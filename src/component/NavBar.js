@@ -9,7 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import withStyles from '@material-ui/core/styles/withStyles';
 import NavStyles from './styles/NavStyles'
 import { NavLink as Link } from 'react-router-dom'
-
+import '../index.css'
 class NavBar extends Component {
 	logoutFn = () => {
 		localStorage.removeItem('jwt')
@@ -26,45 +26,18 @@ class NavBar extends Component {
 		}
 		return(
 			<div>
-			<AppBar className={classes.bar} position="static">
-					<Toolbar>
-							<Typography variant="title" color="inherit">
-								<Link to="/homepage" style={linkStyle}><ChatBubbleOutlineIcon/></Link>
-							</Typography>
-						
-							<List component="nav">
-            <ListItem component="div">
-                <ListItemText inset>
-                    <Typography className= {classes.list_1} color="inherit" variant="title">
-									<Link to="/feature" style={linkStyle}> Feature </Link>
-               			</Typography>
-                </ListItemText>
+			<nav className="homepageNav">
+					<ul className="ul">
+						<li className="listItems homepage-logo">	<Link to="/homepage" style={linkStyle}>TalkBit</Link></li>
+						<li className="listItems"><Link to="/feature" style={linkStyle}> Feature </Link></li>
+						<li className="listItems"><Link to="/contact" style={linkStyle}> Contact </Link></li>
+						{this.props.logged_in ? <li className="listItems"><Link to= "/chatapp" style={linkStyle}>ChatApp</Link></li> : null}
+						<li className="listItems">
+						{this.props.logged_in ? <Link to="/login" style={linkStyle} onClick={this.logoutFn}> Logout</Link> : <Link to="/login" style={linkStyle}> Login</Link>}
+							</li>
 
-
-                <ListItemText inset>
-                    <Typography className= {classes.list_2}color="inherit" variant="title">
-                       <Link to="/contact" style={linkStyle}> Contact </Link>
-              			 </Typography>
-                </ListItemText>
-
-
-                <ListItemText inset>
-                    <Typography className= {classes.list_3}color="inherit" variant="title">
-                        <Link to= "/chatapp" style={linkStyle}>ChatApp</Link>
-               			</Typography>
-                </ListItemText>
-
-								<ListItemText inset>
-                    <Typography className= {classes.list_4}color="inherit" variant="title">
-											{this.props.logged_in ? <Link to="/login" style={linkStyle} onClick={this.logoutFn}> Logout</Link> : <Link to="/login" style={linkStyle}> Login</Link>}
-               			</Typography>
-                </ListItemText>	
-            </ListItem >
-
-        </List>
-				
-					</Toolbar>
-			</AppBar>
+					</ul>
+				</nav>
 			</div>
 		)
 	}

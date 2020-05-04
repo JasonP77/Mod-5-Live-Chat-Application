@@ -8,8 +8,9 @@ class MessageBox extends Component {
 		messageDiv.scrollIntoView(false);
 }
 	renderMessages = () => {
-    return this.props.currentRoom.messages.map(message => <Message key={message.id} message={message} currentUser={this.props.currentUser}/>)
-  }
+    return this.props.currentRoom.messages.map(message => <Message currentRoom={this.props.currentRoom} key={message.id} message={message} currentUser={this.props.currentUser}/>)
+	}
+
 
 	render(){
 		// console.log(this.props.message.content)
@@ -18,6 +19,7 @@ class MessageBox extends Component {
 			<main class="chat" id="messages">
 
 				{this.renderMessages()}
+
 			</main>
 
 			)

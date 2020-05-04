@@ -55,7 +55,7 @@ class App extends Component {
   updateCurrentUser = (user) => {
     console.log(this.state.currentUser)
     if(user !== null){
-    this.setState({currentUser: user, friends: user.friends, profile_img: user.profile_img})
+    this.setState({currentUser: user, friends: user.friends, profile_img: user.profile_img, allRooms: user.chatrooms})
     } else {
       this.setState({currentUser: user})
     }
@@ -94,7 +94,8 @@ class App extends Component {
   }
 
   createNewRoom = (friendObj) => {
-    fetch("http://localhost:3000/chatrooms", {
+    
+      fetch("http://localhost:3000/chatrooms", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -109,7 +110,8 @@ class App extends Component {
     .then(response => response.json())
     .then(newRoom => this.setState({allRooms: [...this.state.allRooms, newRoom]}))
     
-    console.log('connected')
+  
+    
   }
 
 
@@ -188,6 +190,7 @@ class App extends Component {
           <ChatroomListContainer 
           currentUser={this.state.currentUser}
           allRooms={this.state.allRooms}
+          friends= {this.state.friends}
           
           />
         )}/>
