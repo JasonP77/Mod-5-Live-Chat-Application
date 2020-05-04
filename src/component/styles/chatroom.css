@@ -15,6 +15,7 @@
 .chat {
   background-color: #a1c0d6;
   height: auto;
+  min-height: 513px;
   overflow: auto;
   padding-top: 15px;
   padding-left:10px;

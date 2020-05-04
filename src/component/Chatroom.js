@@ -12,14 +12,28 @@ class Chatroom extends Component {
     super()
     this.state = {
       newMessage: "",
-      friend: ""
+      friend: "",
+      time: ""
     }
   }
 
   newMessageHandler = (e) => {
     this.setState({
-      newMessage: e.target.value
+      newMessage: e.target.value,
+      time: this.getCurrentTime()
     })
+  }
+
+  getCurrentTime = () => {
+    let date = new Date();
+    let hours = date.getHours();
+    let min = date.getMinutes();
+    let ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    min = min < 10 ? '0'+min : min;
+    let strTime = hours + ':' + min + ' ' + ampm; 
+    return strTime
   }
 
   enterMessage = (e) => {
@@ -33,10 +47,11 @@ class Chatroom extends Component {
       body: JSON.stringify({
         user_id: this.props.currentUser.id,
         chatroom_id: this.props.chatroom.id,
-        content: this.state.newMessage
+        content: this.state.newMessage,
+        time: this.state.time
       })
     })
-    this.setState({newMessage: ""})
+    this.setState({newMessage: "", time: ""})
     
   }
 
@@ -61,7 +76,7 @@ class Chatroom extends Component {
       <div class="header__column">
       </div>
       <div class="header__column">
-        <span class="header_time">current time</span>
+        <span class="header_time">Current Time</span>
       </div>
       <div class="header__column">
       </div>

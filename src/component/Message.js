@@ -6,6 +6,12 @@ class Message extends Component {
 		return this.props.currentRoom.users.find(u => u.id !== this.props.currentUser.id)?.profile_img
 		}
 
+	friendName = () => {
+		return this.props.currentRoom.users.find(u => u.id !== this.props.currentUser.id)?.username
+		}
+
+
+
 	render(){
 		
 		return(
@@ -15,18 +21,18 @@ class Message extends Component {
 				
 				</div>
 						<div class="chat__message chat__message-from-me">
-							<span class="chat__message-time">Time Message was sent</span>
+							<span class="chat__message-time">{this.props.message.time}</span>
 							<span class="chat__message-body">{this.props.message.content}</span>
 						</div> 
 		</div> :
 			<div class="chat__message chat__message-to-me">
 			<img src={this.friendImage()} class="chat__message-avaatar" />
 			<div class="chat__message-center">
-				<h3 class="chat__message-username">Friend's name</h3>
+				<h3 class="chat__message-username">{this.friendName()}</h3>
 				<span class="chat__message-body">{this.props.message.content}</span>
 			</div>
 
-			<span class="chat__message-time">Time message was sent</span>
+			<span class="chat__message-time">{this.props.message.time}</span>
 	</div>
 		)
 	}

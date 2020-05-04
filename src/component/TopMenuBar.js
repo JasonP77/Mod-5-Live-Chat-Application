@@ -20,9 +20,14 @@ class TopMenuBar extends Component {
 
 	getCurrentTime = () => {
 		let date = new Date();
-		let hour = date.getHours();
+		let hours = date.getHours();
 		let min = date.getMinutes();
-		return `${hour}:${min}`
+		let ampm = hours >= 12 ? 'pm' : 'am';
+		hours = hours % 12;
+  	hours = hours ? hours : 12;
+		min = min < 10 ? '0'+min : min;
+		let strTime = hours + ':' + min + ' ' + ampm; 
+		return strTime
 	}
 	render(){
 		return(
