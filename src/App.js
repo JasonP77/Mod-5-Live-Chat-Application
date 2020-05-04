@@ -94,8 +94,12 @@ class App extends Component {
   }
 
   createNewRoom = (friendObj) => {
-    
-      fetch("http://localhost:3000/chatrooms", {
+    let foundRoom = this.state.allRooms.find(room => room.user_id === this.state.currentUser.id && room.friend_id === friendObj.id)
+
+    if(foundRoom){
+      return window.location.href=`/room/${foundRoom.id}`
+  } else {
+    fetch("http://localhost:3000/chatrooms", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -109,7 +113,7 @@ class App extends Component {
     })
     .then(response => response.json())
     .then(newRoom => this.setState({allRooms: [...this.state.allRooms, newRoom]}))
-    
+  }
   
     
   }
