@@ -37,7 +37,12 @@ class Signup extends Component {
 			})
 		})
 		.then(response => response.json())
-		.then(userObj => this.props.updateCurrentUser(userObj))
+		.then(userObj => {
+			console.log(userObj.username, userObj.password)
+			// this.props.updateCurrentUser(userObj)
+			window.location.href = "/login"
+			
+		})
 		this.setState({
 			username: "",
 			password: "",

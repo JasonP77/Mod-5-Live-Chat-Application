@@ -38,6 +38,7 @@ class LoginForm extends Component {
 			if(json.error){
 				alert(json.message)
 			} else {
+				console.log(json)
 				this.props.updateCurrentUser(json.user_data)
 				localStorage.setItem("jwt", json.token)
 				
