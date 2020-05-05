@@ -13,13 +13,12 @@ import { Redirect } from 'react-router-dom'
 
 
 class EditProfile extends Component {
-	constructor(){
-		super()
+	constructor(props){
+		super(props)
 		this.state = {
-			username: "",
-			password: "",
-			profile_img: "",
-			bio: "",
+			username: this.props.username,
+			profile_img: this.props.profile_img,
+			bio: this.props.bio,
 			redirect: true
 		}
 	}
@@ -40,7 +39,7 @@ class EditProfile extends Component {
 			})
 		})
 		.then(response => response.json())
-		.then(data => this.props.updateProfileImg(data.profile_img))
+		.then(data => this.props.updateProfileImg(data))
 		this.setState({
 			username: "",
 			password: "",
@@ -71,12 +70,12 @@ class EditProfile extends Component {
 				<form onSubmit={(e) => this.updateProfile(e)}>
 					<FormControl  fullWidth margin='normal'>
 						<InputLabel htmlFor='login-email-input'>Enter Your New Username</InputLabel>
-						<Input onChange={(e) => this.inputChange(e)} value={this.state.username}autoComplete='off' autoFocus  name='username'></Input>
+						<Input onChange={(e) => this.inputChange(e)} value={this.state.username} autoComplete='off' autoFocus  name='username'></Input>
 					</FormControl>
-					<FormControl  fullWidth margin='normal'>
+					{/* <FormControl  fullWidth margin='normal'>
 						<InputLabel htmlFor='login-password-input' >Enter Your New Password</InputLabel>
-						<Input onChange={(e) => this.inputChange(e)} value={this.state.password} autoComplete="off" type="password" name='password'></Input>
-					</FormControl>
+						<Input onChange={(e) => this.inputChange(e)} value={this.state.currentUser.password} autoComplete="off" type="password" name='password'></Input>
+					</FormControl> */}
 					<FormControl  fullWidth margin='normal'> 
 						<InputLabel htmlFor='login-email-input'>New Profile Imgage</InputLabel>
 						<Input onChange={(e) => this.inputChange(e)}  value={this.state.profile_img} autoComplete='off' autoFocus  name='profile_img'></Input>

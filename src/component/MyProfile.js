@@ -19,7 +19,7 @@ class MyProfile extends Component {
       
           <img src={this.props.profile_img}></img>
           <p class="friends__section-name">
-          {this.props.currentUser.username}
+          {this.props.username}
       
           </p>
 

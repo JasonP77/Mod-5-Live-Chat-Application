@@ -20,7 +20,9 @@ class App extends Component {
     this.state = {
       currentUser: "",
       friends: [],
+      username: "",
       profile_img: "",
+      bio: "",
       allRooms: [],
       currentRoom: {
         room: {},
@@ -42,6 +44,8 @@ class App extends Component {
         this.setState({
           currentUser: json,
           friends: json.friends,
+          username: json.username,
+          bio: json.bio,
           profile_img: json.profile_img,
           allRooms: json.chatrooms
         })
@@ -55,14 +59,14 @@ class App extends Component {
   updateCurrentUser = (user) => {
     console.log(this.state.currentUser)
     if(user !== null){
-    this.setState({currentUser: user, friends: user.friends, profile_img: user.profile_img, allRooms: user.chatrooms})
+    this.setState({currentUser: user, friends: user.friends, username: user.username, bio: user.bio, profile_img: user.profile_img, allRooms: user.chatrooms})
     } else {
       this.setState({currentUser: user})
     }
   }
 
-  updateProfileImg = (profileImg) => {
-    this.setState({profile_img: profileImg})
+  updateProfileImg = (profile) => {
+    this.setState({username: profile.username, bio: profile.bio, profile_img: profile.profile_img})
   }
 
   updateFriendList = (friendObj) => {
@@ -155,6 +159,8 @@ class App extends Component {
         <ChatApp
         currentUser={this.state.currentUser}
         friends={this.state.friends}
+        username={this.state.username}
+        bio={this.state.bio}
         profile_img={this.state.profile_img}
         createNewRoom={this.createNewRoom}
         /> 
@@ -223,6 +229,9 @@ class App extends Component {
           <EditProfile 
           currentUser={this.state.currentUser}
           friends={this.state.friends}
+          username={this.state.username}
+          bio={this.state.bio}
+          profile_img={this.state.profile_img}
           updateProfileImg={this.updateProfileImg}
           />
         )}/>
