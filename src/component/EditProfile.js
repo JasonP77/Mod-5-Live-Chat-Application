@@ -69,19 +69,19 @@ class EditProfile extends Component {
 					Edit Profile
 				</Typography>
 				<form onSubmit={(e) => this.updateProfile(e)}>
-					<FormControl required fullWidth margin='normal'>
+					<FormControl  fullWidth margin='normal'>
 						<InputLabel htmlFor='login-email-input'>Enter Your New Username</InputLabel>
 						<Input onChange={(e) => this.inputChange(e)} value={this.state.username}autoComplete='off' autoFocus  name='username'></Input>
 					</FormControl>
-					<FormControl required fullWidth margin='normal'>
+					<FormControl  fullWidth margin='normal'>
 						<InputLabel htmlFor='login-password-input' >Enter Your New Password</InputLabel>
 						<Input onChange={(e) => this.inputChange(e)} value={this.state.password} autoComplete="off" type="password" name='password'></Input>
 					</FormControl>
-					<FormControl required fullWidth margin='normal'>
+					<FormControl  fullWidth margin='normal'> 
 						<InputLabel htmlFor='login-email-input'>New Profile Imgage</InputLabel>
 						<Input onChange={(e) => this.inputChange(e)}  value={this.state.profile_img} autoComplete='off' autoFocus  name='profile_img'></Input>
 					</FormControl>
-					<FormControl required fullWidth margin='normal'>
+					<FormControl  fullWidth margin='normal'>
 						<InputLabel htmlFor='login-email-input'>New Bio</InputLabel>
 						<Input onChange={(e) => this.inputChange(e)} value={this.state.bio} autoComplete='off' autoFocus  name='bio'></Input>
 					</FormControl>

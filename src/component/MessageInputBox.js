@@ -13,7 +13,7 @@ class MessageInputBox extends Component {
       <input type="text" value={this.props.input} onChange={(e) => this.props.newMessageHandler(e)}/>
       <i class="fa fa-smile-o"></i>
       <span class="record-message">
-				<SendIcon><input type="Submit"  className="icon"/></SendIcon>
+			<SendIcon><input type="Submit"  className="icon"></input></SendIcon>
       </span>
     </div>
   </div>

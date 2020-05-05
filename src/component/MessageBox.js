@@ -4,8 +4,9 @@ import Message from './Message'
 
 class MessageBox extends Component {
 	componentDidUpdate() {
-		let messageDiv = document.getElementById('messages')
-		messageDiv.scrollIntoView(false);
+		// let messageDiv = document.getElementById('messages')
+		// messageDiv.scrollIntoView(false);
+		window.scrollTo(0,document.body.scrollHeight);
 }
 	renderMessages = () => {
     return this.props.currentRoom.messages.map(message => <Message currentRoom={this.props.currentRoom} key={message.id} message={message} currentUser={this.props.currentUser}/>)
