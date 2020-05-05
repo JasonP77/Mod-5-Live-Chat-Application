@@ -181,6 +181,7 @@ class App extends Component {
         </div>
         )} />
         <Route exact path="/add" render={() => (
+          this.state.currentUser ? 
           <div>
           <AddFriend 
           currentUser={this.state.currentUser}
@@ -188,7 +189,7 @@ class App extends Component {
           // friends={this.state.friends}
           updateFriendList={this.updateFriendList}
           />
-          </div>
+          </div> : <Redirect to="/homepage"/>
         )}/>
         <Route exact path="/chatroom/" render={() => (
           <ChatroomListContainer 
@@ -200,9 +201,11 @@ class App extends Component {
         )}/>
 
         <Route exact path="/room/:id" render={ (props) => 
+        
         {
           let chatroomId = parseInt(props.match.params.id)
           let selectedChatroom = this.state.allRooms.find(room => room.id === chatroomId)
+          
           return <Chatroom 
           {...props}
           cableApp={this.props.cableApp}
@@ -211,7 +214,7 @@ class App extends Component {
           currentUser={this.state.currentUser}
           chatroom={selectedChatroom}
           currentRoom={this.state.currentRoom}
-          />
+          /> 
            
         }}/>
         

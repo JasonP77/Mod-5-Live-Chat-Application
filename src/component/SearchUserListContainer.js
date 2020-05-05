@@ -6,7 +6,7 @@ class SearchUserListContainer extends Component {
 	}
 	render(){
 		return(
-		<div>
+		<div class="searchContainer">
 			{this.renderUser()}
 		</div>
 		)

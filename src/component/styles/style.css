@@ -68,7 +68,9 @@
 }
 
 /* MyProfile and Friends */
-
+.searchContainer {
+  margin-bottom: 70px;
+}
 .friends__section .frindes__section-header {
   border-top: 1px solid  #ebebeb;
   border-bottom: 1px solid  #ebebeb;
@@ -82,12 +84,14 @@
   display: flex;
   align-items: center;
   font-size: 14px;
+  
 }
 
 .friends__section-row img{
   width: 40px;
   border-radius: 50%;
   margin-right: 15px;
+
 }
 
 .friends__section-row a {
@@ -103,7 +107,6 @@
 .friends__section-column {
   display: flex;
   align-items: center;
-  
 }
 
 .friends__section-row.with-tagline {
@@ -117,6 +120,7 @@
   padding: 10px 5px;
   border-radius:  5px;
   color: #939393;
+  
 }
 
 .friends-container {
