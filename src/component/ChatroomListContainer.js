@@ -19,6 +19,7 @@ class ChatroomListContainer extends Component {
 			currentUser={this.props.currentUser}
 			room={room}
 			allUsers={this.state.allUsers}
+			updateCurrentUser={this.props.updateCurrentUser}
 		/>)
 	}
 	render(){

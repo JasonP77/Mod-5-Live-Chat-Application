@@ -163,6 +163,7 @@ class App extends Component {
         bio={this.state.bio}
         profile_img={this.state.profile_img}
         createNewRoom={this.createNewRoom}
+        updateCurrentUser={this.updateCurrentUser}
         /> 
         </div>
         : <Redirect to="/homepage"/>
@@ -202,7 +203,7 @@ class App extends Component {
           currentUser={this.state.currentUser}
           allRooms={this.state.allRooms}
           friends= {this.state.friends}
-          
+          updateCurrentUser={this.updateCurrentUser}
           />
         )}/>
 

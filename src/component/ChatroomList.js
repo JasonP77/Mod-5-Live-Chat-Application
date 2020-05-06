@@ -38,7 +38,10 @@ class ChatroomList extends Component {
 						<span class="chat__date-time">12:25</span>
 					</a>
 				</div>
-				<ChatappFooter currentUser={this.props.currentUser}/>
+				<ChatappFooter 
+				currentUser={this.props.currentUser}
+				updateCurrentUser={this.props.updateCurrentUser}
+				/>
 			</div>
 		)
 	}

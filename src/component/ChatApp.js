@@ -37,7 +37,10 @@ class ChatApp extends Component {
 				<FriendsContainer  friends={filteredFriend}
 				createNewRoom={this.props.createNewRoom}
 				/>
-				<ChatappFooter currentUser={this.props.currentUser}/>
+				<ChatappFooter 
+				currentUser={this.props.currentUser}
+				updateCurrentUser={this.props.updateCurrentUser}
+				/>
 			</div>
 		)
 	}
