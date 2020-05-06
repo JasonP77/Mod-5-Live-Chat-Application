@@ -8,6 +8,10 @@
   color: black;
 }
 
+.header_time {
+  font-family: 'Josefin Slab', serif;
+}
+
 .chat-header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }

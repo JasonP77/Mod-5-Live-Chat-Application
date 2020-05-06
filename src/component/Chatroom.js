@@ -76,7 +76,7 @@ class Chatroom extends Component {
       <div class="header__column">
       </div>
       <div class="header__column">
-        <span class="header_time">Current Time</span>
+        <span class="header_time">TALKBIT</span>
       </div>
       <div class="header__column">
       </div>

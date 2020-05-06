@@ -195,6 +195,7 @@ class App extends Component {
           friends={this.state.friends}
           // friends={this.state.friends}
           updateFriendList={this.updateFriendList}
+          updateCurrentUser={this.updateCurrentUser}
           />
           </div> : <Redirect to="/homepage"/>
         )}/>

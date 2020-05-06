@@ -64,7 +64,10 @@ class AddFriend extends Component {
 				<TopMenuBar friends={this.props.friends}/>
 				<SearchBar searchTerm={this.searchTerm}/>
 				<SearchUserListContainer addFriend={this.addFriend} filteredUser={filteredUsers}/>
-				<ChatappFooter currentUser={this.props.currentUser}/>
+				<ChatappFooter
+				 currentUser={this.props.currentUser}
+				 updateCurrentUser={this.props.updateCurrentUser}
+				 />
 			</div>
 		)
 	}
