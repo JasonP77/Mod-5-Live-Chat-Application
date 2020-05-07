@@ -66,7 +66,7 @@ class Signup extends Component {
         <CssBaseline/>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h5">
-            Sign Up!
+            Sign Up
           </Typography>
           <form onSubmit={(e) => {e.preventDefault(); this.createAccount(e)}}className={classes.form}>
             <FormControl required fullWidth margin='normal'>
@@ -81,10 +81,10 @@ class Signup extends Component {
               <InputLabel htmlFor='signup-password-confirmation-input'  autocomplete="off">Confirm Your Password</InputLabel>
               <Input onChange={(e) => this.inputChange(e)} value={this.state.password_confirmation} type="password" name='password_confirmation'></Input>
             </FormControl>
-            <Button type='submit' fullWidth variant='contained' color='primary' className={classes.submit}>Submit</Button>
+            <Button type='submit' fullWidth variant='contained' color='secondary' className={classes.submit}>Submit</Button>
           </form>
           <h5 className={classes.hasAccountHeader}>Already Have An Account?</h5>
-          <Link className={classes.logInLink} to='/login'>Log In!</Link>
+          <Link className={classes.logInLink} to='/login'>Log In</Link>
         </Paper>
       </main>
     );

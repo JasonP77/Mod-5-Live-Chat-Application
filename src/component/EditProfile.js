@@ -86,7 +86,7 @@ class EditProfile extends Component {
 					</FormControl>
 				<Button type='submit' fullWidth variant='contained' color='secondary' className={classes.submit}>Submit</Button>
 				</form>
-				{!this.state.redirect && (<Redirect to="/homepage"/>)}
+				{!this.state.redirect && (<Redirect to="/chatapp"/>)}
 			</Paper>
 		</main>
 		)
