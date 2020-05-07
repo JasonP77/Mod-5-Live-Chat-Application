@@ -84,7 +84,7 @@ class EditProfile extends Component {
 						<InputLabel htmlFor='login-email-input'>New Bio</InputLabel>
 						<Input onChange={(e) => this.inputChange(e)} value={this.state.bio} autoComplete='off' autoFocus  name='bio'></Input>
 					</FormControl>
-				<Button type='submit' fullWidth variant='contained' color='primary' className={classes.submit}>Submit</Button>
+				<Button type='submit' fullWidth variant='contained' color='secondary' className={classes.submit}>Submit</Button>
 				</form>
 				{!this.state.redirect && (<Redirect to="/homepage"/>)}
 			</Paper>

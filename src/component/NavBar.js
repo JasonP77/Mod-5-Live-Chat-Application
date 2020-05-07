@@ -22,7 +22,9 @@ class NavBar extends Component {
 		const { classes } = this.props;
 		const linkStyle = {
 			textDecoration: 'none',
-			color: 'white'
+			color: 'white',
+			fontFamily: 'Cinzel, serif',
+			fontFamily: 'Bebas Neue, cursive'
 		}
 		return(
 			<div>
@@ -30,7 +32,7 @@ class NavBar extends Component {
 					<ul className="ul">
 						<li className="listItems homepage-logo">	<Link to="/homepage" style={linkStyle}>TalkBit</Link></li>
 						<li className="listItems"><Link to="/feature" style={linkStyle}> Feature </Link></li>
-						<li className="listItems"><Link to="/contact" style={linkStyle}> Contact </Link></li>
+						<li className="listItems"><Link to="/contact" style={linkStyle}> Vision </Link></li>
 						{this.props.logged_in ? <li className="listItems"><Link to= "/chatapp" style={linkStyle}>ChatApp</Link></li> : null}
 						<li className="listItems">
 						{this.props.logged_in ? <Link to="/login" style={linkStyle} onClick={this.logoutFn}> Logout</Link> : <Link to="/login" style={linkStyle}> Login</Link>}

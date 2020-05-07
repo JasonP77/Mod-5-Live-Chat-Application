@@ -60,7 +60,7 @@ class LoginForm extends Component {
 			<CssBaseline/>
 			<Paper className={classes.paper}>
 				<Typography component="h1" variant="h5">
-					Log In!
+					Log In
 				</Typography>
 				<form onSubmit={(e) => this.loginHandler(e)}>
 					<FormControl required fullWidth margin='normal'>
@@ -71,10 +71,10 @@ class LoginForm extends Component {
 						<InputLabel htmlFor='login-password-input' >Enter Your Password</InputLabel>
 						<Input onChange={(e) => this.inputChange(e)} autoComplete="off" type="password" name='password'></Input>
 					</FormControl>
-					<Button type='submit' fullWidth variant='contained' color='primary' className={classes.submit}>Log In</Button>
+					<Button type='submit' fullWidth variant='contained' color='secondary' className={classes.submit}>Log In</Button>
 				</form>
 				<h5 className={classes.noAccountHeader}>Don't Have An Account?</h5>
-				<Link className={classes.signUpLink} to='/signup'>Sign Up!</Link>
+				<Link className={classes.signUpLink} to='/signup'>Sign Up</Link>
 			</Paper>
 		</main>
 		)

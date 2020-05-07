@@ -35,7 +35,7 @@ class ChatroomList extends Component {
 							<span class="chat__last-message">{null}</span>
 							</div>
 						</div>
-						<span class="chat__date-time">12:25</span>
+						<span class="chat__date-time"></span>
 					</a>
 				</div>
 				<ChatappFooter 
