@@ -127,8 +127,7 @@ class App extends Component {
 
 
   render(){
-    // console.log(this.state.currentUser)
-    //     console.log(this.state.friends)
+    
     return (
     
       <div className="App">

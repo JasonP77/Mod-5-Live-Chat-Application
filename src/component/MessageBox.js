@@ -4,8 +4,6 @@ import Message from './Message'
 
 class MessageBox extends Component {
 	componentDidUpdate() {
-		// let messageDiv = document.getElementById('messages')
-		// messageDiv.scrollIntoView(false);
 		window.scrollTo(0,document.body.scrollHeight);
 }
 	renderMessages = () => {
@@ -14,9 +12,9 @@ class MessageBox extends Component {
 
 
 	render(){
-		// console.log(this.props.message.content)
+		
 		return(
-			// this.renderMessages()
+			
 			<main class="chat" id="messages">
 
 				{this.renderMessages()}
