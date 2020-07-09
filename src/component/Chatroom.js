@@ -5,7 +5,7 @@ import MessageInputBox from './MessageInputBox'
 import RoomWebSocket from './RoomWebSocket'
 import MessageBox from './MessageBox'
 import IconButton from '@material-ui/core/IconButton';
-import {Redirect} from 'react-router-dom'
+// import {Redirect} from 'react-router-dom'
 
 class Chatroom extends Component {
   constructor(){
