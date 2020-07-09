@@ -65,9 +65,7 @@ class Chatroom extends Component {
   
 
 	render(){
-    // const friendName = this.props.currentRoom.users.find(f => f.user_id !== this.props.currentUser.id).username
-    // console.log(this.props.currentRoom.users.find(f => f.user_id !== this.props.currentUser.id))
-    // console.log(this.props.currentUser.username)
+    
 		return(
       this.props.chatroom ? 
 			<div>
