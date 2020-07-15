@@ -77,7 +77,7 @@ class EditProfile extends Component {
 						<Input onChange={(e) => this.inputChange(e)} value={this.state.currentUser.password} autoComplete="off" type="password" name='password'></Input>
 					</FormControl> */}
 					<FormControl  fullWidth margin='normal'> 
-						<InputLabel htmlFor='login-email-input'>New Profile Imgage</InputLabel>
+						<InputLabel htmlFor='login-email-input'>New Profile Image</InputLabel>
 						<Input onChange={(e) => this.inputChange(e)}  value={this.state.profile_img} autoComplete='off' autoFocus  name='profile_img'></Input>
 					</FormControl>
 					<FormControl  fullWidth margin='normal'>
