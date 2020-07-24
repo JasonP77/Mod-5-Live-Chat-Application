@@ -12,6 +12,7 @@ class RoomWebSocket extends Component {
 		
 		{
 			received: (updatedRoom) => {
+				// testing if it reaches this function
 				console.log("hitting this function")
 				this.props['data-updatedApp'](updatedRoom)
 
