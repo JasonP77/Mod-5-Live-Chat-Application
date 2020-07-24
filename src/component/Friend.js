@@ -7,7 +7,8 @@ class Friend extends Component {
     const linkStyle = {
 			textDecoration: 'none',
       color: 'black'
-		}
+    }
+    // when friend's name is clicked it will create a new room with the selected friend
 		return(
 			<section  onDoubleClick={() => this.props.createNewRoom(this.props.friendObj)} class="friends__section">
       <div  class="friends__section-rows">
