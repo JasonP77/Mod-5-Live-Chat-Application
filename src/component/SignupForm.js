@@ -60,7 +60,7 @@ class Signup extends Component {
   render() {
 
 		const { classes } = this.props;
-
+		// Material UI CSS
     return (
       <main className={classes.main}>
         <CssBaseline/>
