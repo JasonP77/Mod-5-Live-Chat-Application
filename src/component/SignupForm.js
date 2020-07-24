@@ -20,7 +20,7 @@ class Signup extends Component {
 			password_confirmation: ""
 		}
 	}
-
+	// checks if the password matches password_confirmation when sign up
 	createAccount = (e) => {
 		const {password, password_confirmation} = this.state
 		if(password === password_confirmation) {
