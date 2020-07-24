@@ -26,6 +26,7 @@ class NavBar extends Component {
 			fontFamily: 'Cinzel, serif',
 			fontFamily: 'Bebas Neue, cursive'
 		}
+		// when user is logged in chatroom will appear in the nav bar
 		return(
 			<div>
 			<nav className="homepageNav">
